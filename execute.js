@@ -1,8 +1,6 @@
 import { features } from "./enums.js";
 import project from "./project/feature.js";
 
-// import * as project from "./project/features.js";
-
 const exe = {
     project
 };
