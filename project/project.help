@@ -1,0 +1,33 @@
+BlackMamba Project feature
+
+CREATE
+
+Syntax: 
+  bm -c project <projectName> --template=<projectTemplate>
+  bm --create project <projectName> --template=<projectTemplate>
+  bm create project <projectName> --template=<projectTemplate>
+
+Creates a BlackMamba project file structure in the CurrentWorking Directory.
+
+<projectName> argument must not have space.
+  ex: my_project_name
+
+<projectTemplate> argument is used to base creation on default or custom project template
+
+Default template available are:
+  - "default-web"
+    bm -c project <projectName> --template=default-web
+  - "default-server" -> use Deno as default runtime
+    bm -c project <projectName> --template=default-server
+  - "default-desktop" -> use Tauri Studio as default runtime
+    bm -c project <projectName> --template=default-desktop
+
+
+REMOVE
+
+Syntax;
+  bm -r project <projectName>
+  bm --remove project <projectName>
+  bm remove project <projectName>
+
+  Removes a BlackMamba project from the Current Working Directory

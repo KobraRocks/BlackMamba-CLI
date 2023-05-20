@@ -1,0 +1,30 @@
+Welcom to BalckMamba help
+
+how to use the CLI:
+bm [command] [Feature] [Option1] [Option2] [Option3]...
+
+Version command:
+    -v
+    --version
+    version
+
+Help command:
+    -h
+    --help
+    help
+  with feature arg to access the feature specific help
+    -h <feature>
+    --help <feature>
+    help <feature>
+
+Create command:
+  execute the <feature>.create(...options) method
+    -c [feature] [...options]
+    --create [feature] [...options]
+    create [feature] [...options]
+
+Remove command:
+  execute the <feature>.remove(...options) mehod
+    -r [feature] [...options]
+    --remove [feature] [...options]
+    remove [feature] [...options]		
