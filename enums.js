@@ -11,5 +11,5 @@ export const advancedCmds = new Set([
 
 export const features = new Set([
     'project',
-
+    'source',
 ]);

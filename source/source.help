@@ -1,0 +1,80 @@
+Create a source factory file from supported templates
+
+Syntax:
+    bm -c source <my-file> --template=<func | obj | clss>
+
+Templates:
+    func    create a factory for a function
+    obj     create a factory for an object, api is frozen by default
+    clss    create a factory for a class
+
+Factory:
+    Factories are at the core of the BlackMamba framework.
+    A factory allows from a single source to create as many variation of a module needed.
+    It increase re-usability and clarity of the code, and can reduce side-effects.
+    
+    The first level of the factory is the dependencies injection.
+    The second level of the factory is the ability to apply factory settings
+    The third level of the factory is the output module
+
+Anatomy of a factory:
+
+export function factory ( _dependencies ) {
+
+    return ( _factorySettings ) => {
+
+        return <fun | obj | clss>;
+
+    }
+
+}
+
+Example:
+
+Create a factory function to validate that the price of a product
+following the constains of the business. 
+
+export function factory ({ getPrice }) {
+
+    // business constains
+    return ({ max, min }) => {
+
+        return async ( productID ) => {
+
+            const { price } = await getPrice( productID );
+
+            return price <= max && price >= min;
+
+        }
+
+    }
+
+}
+
+In the example above we ensure that the output function does one thing only but does it well.
+Its dependency `getPrice` can support any implementation as long as the signature and the type of the function remains the same.
+
+
+Let's go a step further, imagine that we want to configure getPrice to return only prices from a specific category.
+
+// instead of injecting the module, we inject the module builder
+export function factory ({ getPriceBuilder }) {
+
+    return ({ max, min, category }) => {
+
+        // then we build the module 
+        const getPrice = getPriceBuilder
+            .applySettings( category )
+            .build();
+
+        return async ( productID ) => {
+
+            const { price } = await getPrice( productID );
+
+            return price <= max && price >= min;
+
+        }
+
+    }
+
+}
