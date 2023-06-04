@@ -23,7 +23,7 @@ export function factory ( _dependencies ) {
 
     return ( _factorySettings ) => {
 
-        return <fun | obj | clss>;
+        return <fun | obj | class>;
 
     }
 
@@ -31,7 +31,7 @@ export function factory ( _dependencies ) {
 
 Example:
 
-Create a factory function to validate that the price of a product follows the constains of the business. 
+Create a factory function to validate that the price of a product following the constains of the business. 
 
 export function factory ({ getPrice }) {
 
